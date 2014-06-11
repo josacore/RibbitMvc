@@ -9,6 +9,8 @@ namespace RibbitMvc.Data
 {
     public class RibbitDatabase : DbContext
     {
+        public RibbitDatabase() : base("RibbitConnection") { }
+
         public DbSet<User> Users { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Ribbit> Ribbits { get; set; }
