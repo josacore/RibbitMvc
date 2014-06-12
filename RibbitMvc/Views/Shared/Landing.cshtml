@@ -1,4 +1,4 @@
-﻿@model SignupViewModel
+﻿@model LoginSignupViewModel
 @{
     ViewBag.Title = "Ribbit";
 }
@@ -9,10 +9,10 @@
     <p>
         @using (var signupForm = Html.BeginForm("SignUp", "Account")) { 
             @Html.AntiForgeryToken()
-            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email"})
-            @Html.TextBoxFor(m => m.Username, new { placeholder = "Username"})
-            @Html.PasswordFor(m => m.Password, new { placeholder = "Pasword"})
-            @Html.PasswordFor(m => m.Password2, new { placeholder = "Confirm Password" })
+            @Html.TextBoxFor(m => m.Signup.Email, new { placeholder = "Email"})
+            @Html.TextBoxFor(m => m.Signup.Username, new { placeholder = "Username" })
+            @Html.PasswordFor(m => m.Signup.Password, new { placeholder = "Pasword" })
+            @Html.PasswordFor(m => m.Signup.Password2, new { placeholder = "Confirm Password" })
             <input type="submit" value="Create Acount" >
         }
     </p>

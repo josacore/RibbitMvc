@@ -25,14 +25,24 @@ namespace RibbitMvc.Services
 
         public Models.Ribbit Create(Models.User user, string status, DateTime? created = null)
         {
+            return Create(user.ID,status,created);
+        }
+        public Models.Ribbit Create(int userId, string status, DateTime? created = null)
+        {
             var ribbit = new Ribbit()
             {
+                AuthorId = userId,
                 Status = status,
                 DateCreated = created.HasValue ? created.Value : DateTime.Now
             };
-            _ribbits.AddFor(ribbit,user);
+            _ribbits.Create(ribbit);
             _context.SaveChanges();
             return ribbit;
+        }
+        public IEnumerable<Ribbit> GetTimelineFor(int userId)
+        {
+            return _ribbits.FindAll(r => r.Author.Followers.Any( f => f.ID == userId) || 
+                r.Author.ID == userId).OrderByDescending( r => r.DateCreated);
         }
     }
 }

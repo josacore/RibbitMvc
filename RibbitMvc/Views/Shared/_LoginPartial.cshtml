@@ -1,0 +1,9 @@
+﻿@model RibbitMvc.ViewModel.LoginSignupViewModel
+
+@using (var loginForm = Html.BeginForm("Login", "Account")) 
+{ 
+    @Html.AntiForgeryToken()
+    @Html.TextBoxFor(m => m.Login.Username, new { placeholder = "Username" });
+    @Html.PasswordFor(m => m.Login.Password, new { placeholder = "Password" })
+    <input type="submit" value="LogIn" />
+}

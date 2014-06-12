@@ -19,12 +19,14 @@
                     @Html.RouteLink("Edit Profile", "ProfileDefault")
                 </nav>
                 using (var logoutForm = Html.BeginForm("Logout", "Account")) { 
+                    @Html.AntiForgeryToken()
                     <input type="submit" value="Logout"/>
                 }
             }
             else 
-            { 
-                <span>Yes Login Form</span>
+            {
+                var model = (Model as LoginSignupViewModel) ?? new LoginSignupViewModel();
+                @Html.Partial("_LoginPartial",model)
             }
 		</div>
 	</header>
@@ -36,7 +38,9 @@
                     @Html.ValidationSummary()
                 </div>
             }
+            
             @RenderBody()
+
             @if (IsSectionDefined("RightPanel"))
             {
                 <div class="panel right">

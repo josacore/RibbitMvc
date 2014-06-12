@@ -11,33 +11,56 @@ namespace RibbitMvc.Controllers
     {
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignUp(SignupViewModel model) 
+        public ActionResult SignUp(LoginSignupViewModel model) 
         {
             if (Security.IsAuthenticated) {
                 return RedirectToAction("Index","Home");
             }
+
+            model.Login = new LoginViewModel();
+            var signup = model.Signup;
+
             if (!ModelState.IsValid) {
                 return View("Landing",model);
             }
-            if (Security.DoesUserExist(model.Username)) {
+            if (Security.DoesUserExist(signup.Username)) {
                 ModelState.AddModelError("Username", "Username is already taken.");
                 return View("Landing", model);
             }
-            Security.CreateUser(model);
+            Security.CreateUser(signup);
             return RedirectToAction("Index", "Home");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login()
+        public ActionResult Login(LoginSignupViewModel model)
         {
-            throw new NotImplementedException();
+            if (Security.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            model.Signup = new SignupViewModel();
+            var login = model.Login;
+
+            if (!ModelState.IsValid)
+            {
+                return View("Landing", model);
+            }
+            if (!Security.Authenticate(login.Username,login.Password))
+            {
+                ModelState.AddModelError("Username", "Username and/or Password was incorrect.");
+                return View("Landing", model);
+            }
+            Security.Login(login.Username);
+            return RedirectToAction("Index", "Home");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
             Security.Logout();
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
