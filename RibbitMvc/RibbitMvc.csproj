@@ -114,6 +114,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\RibbitControllerBase.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IContext.cs" />
@@ -131,15 +136,33 @@
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IRibbitService.cs" />
+    <Compile Include="Services\ISecurityService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\RibbitService.cs" />
+    <Compile Include="Services\SecurityService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Ui\RibbitViewPage.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\SignupViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="gfx\bg-button.png" />
+    <Content Include="gfx\bg-footer.png" />
+    <Content Include="gfx\bg-header.png" />
+    <Content Include="gfx\bg.png" />
+    <Content Include="gfx\frog.jpg" />
+    <Content Include="gfx\logo-nettuts.png" />
+    <Content Include="gfx\logo.png" />
+    <Content Include="gfx\user1.png" />
+    <Content Include="gfx\user2.png" />
+    <Content Include="gfx\user3.png" />
     <Content Include="Global.asax" />
+    <Content Include="less.js" />
+    <Content Include="Views\Shared\Landing.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -148,13 +171,18 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gfx\Thumbs.db" />
+    <Content Include="style.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

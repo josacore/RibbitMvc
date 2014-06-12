@@ -29,7 +29,7 @@ namespace RibbitMvc.Services
             return _users.GetBy(username);
         }
 
-        public Models.User Create(string username, string passord, Models.UserProfile profile, DateTime? created)
+        public Models.User Create(string username, string passord, Models.UserProfile profile, DateTime? created =null)
         {
             var user = new User() 
             { 

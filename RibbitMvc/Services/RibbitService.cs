@@ -23,7 +23,7 @@ namespace RibbitMvc.Services
             return _ribbits.GetBy(id);
         }
 
-        public Models.Ribbit Create(Models.User user, string status, DateTime? created)
+        public Models.Ribbit Create(Models.User user, string status, DateTime? created = null)
         {
             var ribbit = new Ribbit()
             {
