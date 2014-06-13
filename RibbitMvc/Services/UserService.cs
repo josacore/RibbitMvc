@@ -18,7 +18,19 @@ namespace RibbitMvc.Services
             _context = context;
             _users = context.Users;
         }
-
+        public IEnumerable<User> All(bool includeProfile) {
+            return _users.All(includeProfile).ToArray();
+        }
+        public void Follow(string username, User follower)
+        {
+            _users.CreateFollower(username,follower);
+            _context.SaveChanges();
+        }
+        public void Unfollow(string username, User follower)
+        {
+            _users.DeleteFollower(username, follower);
+            _context.SaveChanges();
+        }
         public Models.User GetBy(int id)
         {
             return _users.GetBy(id);

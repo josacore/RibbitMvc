@@ -1,0 +1,20 @@
+﻿@model RibbitMvc.Models.User
+
+<div class="ribbitWrapper">
+    <img class="avatar" src="http://www.gravatar.com/avatar/@Model.Profile.GetEmailHash()" />
+    <span class="name">
+        @Html.RouteLink(@Model.Profile.Name, "UserDefault", new { controller="user", username=Model.Username, action="index"})
+    </span> @@@Model.Username
+    @if (Security.IsAuthenticated && Security.UserId != Model.ID)
+    {
+        var isFollowing = CurrentUser.Followings.Any(u => u.ID == Model.ID);
+        var routeName = isFollowing ? "Unfollow":"Follow";
+        using (var followForm = Html.BeginRouteForm(routeName, new { controller ="home", action=routeName})) 
+        { 
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Username);
+            <input type="submit" value="@routeName" />
+        }
+    }
+    <p> @Model.Profile.Bio </p>
+</div>

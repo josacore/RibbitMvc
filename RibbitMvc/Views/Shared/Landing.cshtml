@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Ribbit";
 }
-<img src="/gfx/frog.jpg">
+<img src="/gfx/frog.jpg" />
 
 @section RightPanel {
     <h1>New To Ribbit?</h1>
@@ -13,7 +13,7 @@
             @Html.TextBoxFor(m => m.Signup.Username, new { placeholder = "Username" })
             @Html.PasswordFor(m => m.Signup.Password, new { placeholder = "Pasword" })
             @Html.PasswordFor(m => m.Signup.Password2, new { placeholder = "Confirm Password" })
-            <input type="submit" value="Create Acount" >
+            <input type="submit" value="Create Acount" />
         }
     </p>
 }

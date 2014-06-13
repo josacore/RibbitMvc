@@ -8,7 +8,8 @@
 <body>
 	<header>
 		<div class="wrapper">
-			<img src="/gfx/logo.png">
+            @Html.ActionLink(" ", "Index", "Home", new { style = "background: url('" + Url.Content("/gfx/logo.png") + "') no-repeat center right; height:40px;width:140px;text-indent: -9999px;display: block;margin: 0 15px 0 0;float: left;" })
+			
 			<span>Twitter Clone</span>
             @if (Security.IsAuthenticated)
             {
@@ -57,7 +58,7 @@
 	</div>
 	<footer>
 		<div class="wrapper">
-			Ribbit - A Twitter Clone Tutorial<img src="/gfx/logo-nettuts.png">
+			Ribbit - A Twitter Clone Tutorial<img src="/gfx/logo-nettuts.png" />
 		</div>
 	</footer>
 </body>

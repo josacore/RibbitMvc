@@ -52,14 +52,13 @@ namespace RibbitMvc.Controllers
                 return View("Landing", model);
             }
             Security.Login(login.Username);
-            return RedirectToAction("Index", "Home");
+            return GoToReferrer();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
             Security.Logout();
-            //throw new NotImplementedException();
             return RedirectToAction("Index", "Home");
         }
     }

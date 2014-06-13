@@ -168,6 +168,8 @@
     <Content Include="Views\Shared\Landing.cshtml" />
     <Content Include="Views\Shared\_CreateRibbitPartial.cshtml" />
     <Content Include="Views\Home\Timeline.cshtml" />
+    <Content Include="Views\Home\Profiles.cshtml" />
+    <Content Include="Views\Home\_UserProfilePartial.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

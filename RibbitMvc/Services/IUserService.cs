@@ -8,6 +8,9 @@ namespace RibbitMvc.Services
 {
     public interface IUserService
     {
+        IEnumerable<User> All(bool includeProfile);
+        void Follow(string username, User follower);
+        void Unfollow(string username, User follower);
         User GetBy(int id);
         User GetBy(string username);
         User Create(string username, string passord, UserProfile profile, DateTime? created = null);

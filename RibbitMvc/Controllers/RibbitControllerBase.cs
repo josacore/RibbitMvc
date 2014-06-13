@@ -33,5 +33,12 @@ namespace RibbitMvc.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult GoToReferrer() {
+            if (Request.UrlReferrer != null)
+            {
+                return Redirect(Request.UrlReferrer.AbsoluteUri);
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
