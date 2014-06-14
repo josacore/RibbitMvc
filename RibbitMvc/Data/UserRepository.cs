@@ -37,14 +37,35 @@ namespace RibbitMvc.Data
                 Context.SaveChanges();
             }
         }
-        public User GetBy(int id)
+        public User GetBy(int id, bool includeProfile = false, bool includeRibbits = false,
+            bool includeFollowers = false, bool includeFollowing = false)
         {
-            return Find( u => u.ID == id);
+            var query = BuildUserQuery(includeProfile, includeRibbits, includeFollowers, includeFollowing);
+
+            return query.SingleOrDefault( u => u.ID == id);
         }
 
-        public User GetBy(string username)
+        private IQueryable<User> BuildUserQuery(bool includeProfile, bool includeRibbits, bool includeFollowers, bool includeFollowing)
         {
-            return Find(u => u.Username == username);
+            var query = DbSet.AsQueryable();
+
+            if (includeProfile)
+                query = DbSet.Include(u => u.Profile);
+            if (includeRibbits)
+                query = DbSet.Include(u => u.Ribbits);
+            if (includeFollowers)
+                query = DbSet.Include(u => u.Followers);
+            if (includeFollowing)
+                query = DbSet.Include(u => u.Followings);
+            return query;
+        }
+
+        public User GetBy(string username, bool includeProfile = false, bool includeRibbits = false,
+            bool includeFollowers = false, bool includeFollowing = false)
+        {
+            var query = BuildUserQuery(includeProfile, includeRibbits, includeFollowers, includeFollowing);
+
+            return query.SingleOrDefault(u => u.Username == username);
         }
     }
 }

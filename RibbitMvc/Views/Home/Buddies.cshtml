@@ -1,0 +1,27 @@
+﻿@model RibbitMvc.ViewModel.BuddiesViewModel
+
+@{
+    ViewBag.Title = "Buddies";
+}
+
+<div id="ribbits" class="panel left">
+    <h1>Ribbit Profile</h1>
+    <div class="ribbitWrapper">
+        <img class="avatar" src="http://www.gravatar.com/avatar/@Model.User.Profile.GetEmailHash()" />
+        <span class="name">
+            @Html.RouteLink(@Model.User.Profile.Name, "UserDefault", new { controller = "user", username = Model.User.Username, action = "index" })
+        </span> @@@Model.User.Username
+        <p>
+            @Model.User.Ribbits.Count Ribbits<span class="spacing">@Model.User.Followers.Count Followers</span><span class="spacing">@Model.User.Followings.Count Following</span><br>
+            @Model.User.Profile.Bio
+        </p>
+    </div>
+</div>
+
+<div class="panel left">
+    <h1>Ribbit Buddies</h1>
+    @foreach (var buddy in @Model.Buddies)
+    {
+        @Html.Partial("_UserProfilePartial",buddy)
+    }
+</div>

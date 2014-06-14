@@ -43,16 +43,29 @@ namespace RibbitMvc.Controllers
         }
         public ActionResult Profiles()
         {
+            if (!Security.IsAuthenticated)
+            {
+                return RedirectToAction("Index");
+            }
             var users = Users.All(true);
             return View(users);
         }
         public ActionResult Followers()
         {
-            throw new NotImplementedException();
+            if (!Security.IsAuthenticated) {
+                return RedirectToAction("Index");
+            }
+            var user = Users.GetAllFor(Security.UserId);
+            return View("Buddies", new BuddiesViewModel() { User = user , Buddies = user.Followers});
         }
         public ActionResult Following()
         {
-            throw new NotImplementedException();
+            if (!Security.IsAuthenticated)
+            {
+                return RedirectToAction("Index");
+            }
+            var user = Users.GetAllFor(Security.UserId);
+            return View("Buddies", new BuddiesViewModel() { User = user, Buddies = user.Followings });
         }
         [HttpGet]
         [ChildActionOnly]

@@ -144,6 +144,7 @@
     <Compile Include="Services\SecurityService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Ui\RibbitViewPage.cs" />
+    <Compile Include="ViewModel\BuddiesViewModel.cs" />
     <Compile Include="ViewModel\CreateRibbitViewModel.cs" />
     <Compile Include="ViewModel\LoginSignupViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -169,7 +170,8 @@
     <Content Include="Views\Shared\_CreateRibbitPartial.cshtml" />
     <Content Include="Views\Home\Timeline.cshtml" />
     <Content Include="Views\Home\Profiles.cshtml" />
-    <Content Include="Views\Home\_UserProfilePartial.cshtml" />
+    <Content Include="Views\Shared\_UserProfilePartial.cshtml" />
+    <Content Include="Views\Home\Buddies.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

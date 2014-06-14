@@ -31,6 +31,21 @@ namespace RibbitMvc.Services
             _users.DeleteFollower(username, follower);
             _context.SaveChanges();
         }
+        public User GetAllFor(int id) {
+            return _users.GetBy(id,
+                includeProfile:true,
+                includeRibbits: true,
+                includeFollowers:true,
+                includeFollowing:true);
+        }
+        public User GetAllFor(string username)
+        {
+            return _users.GetBy(username,
+                includeProfile: true,
+                includeRibbits: true,
+                includeFollowers: true,
+                includeFollowing: true);
+        }
         public Models.User GetBy(int id)
         {
             return _users.GetBy(id);
