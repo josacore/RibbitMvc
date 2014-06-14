@@ -9,21 +9,24 @@ using System.Web.Mvc;
 
 namespace RibbitMvc.Controllers
 {
-    public class RibbitControllerBase :Controller
+    public class RibbitControllerBase : Controller
     {
         protected IContext DataContext;
         public User CurrentUser { get; private set; }
         public IRibbitService Ribbits { get; private set; }
         public IUserService Users { get; private set; }
         public ISecurityService Security { get; private set; }
+        public IUserProfileService Profiles { get; private set; }
 
         public RibbitControllerBase()
         {
             DataContext = new Context();
             Users = new UserService(DataContext);
             Ribbits = new RibbitService(DataContext);
+            Profiles = new UserProfileService(DataContext);
             Security = new SecurityService(Users);
             CurrentUser = Security.GetCurrentUser();
+             
         }
         protected override void Dispose(bool disposing)
         {

@@ -7,9 +7,9 @@ namespace RibbitMvc.Data
 {
     public interface IContext : IDisposable
     {
-        IUserRepositoy Users { get; }
+        IUserRepository Users { get; }
         IRibbitRepository Ribbits { get; }
-
+        IUserProfileRepository Profiles { get; }
         int SaveChanges();
     }
 }

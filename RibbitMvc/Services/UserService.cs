@@ -11,7 +11,7 @@ namespace RibbitMvc.Services
     public class UserService : IUserService
     {
         private readonly IContext _context;
-        private readonly IUserRepositoy _users;
+        private readonly IUserRepository _users;
 
         public UserService(IContext context)
         {

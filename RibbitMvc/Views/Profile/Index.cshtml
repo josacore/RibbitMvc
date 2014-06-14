@@ -1,0 +1,29 @@
+﻿@model EditProfileViewModel
+
+@{
+    ViewBag.Title = "Edit Profile";
+}
+
+@section LeftPanel{
+    @using (var form = Html.BeginForm("Edit", "Profile", FormMethod.Post, new { @class = "editar" }))
+    { 
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ID)
+        <div class="imagen1">
+            <img class="avatar" src="http://www.gravatar.com/avatar/@Model.EmailHash" />
+        </div>
+        <div><span class="name"> @Html.LabelFor(m => m.Email)</span></div>
+        <div> @Html.EditorFor(m => m.Email)</div>
+        
+        <div><span class="name"> @Html.LabelFor(m => m.Name)</span></div>
+        <div> @Html.EditorFor(m => m.Name)</div>
+        
+        <div><span class="name"> @Html.LabelFor(m => m.Website)</span></div>
+        <div> @Html.EditorFor(m => m.Website)</div>
+        
+        <div><span class="name"> @Html.LabelFor(m => m.Bio)</span></div>
+        <div> @Html.TextAreaFor(m => m.Bio, new { @class="ribbitText"})</div>
+        
+        <div><input type="submit" value="Save" /></div>
+    }    
+}

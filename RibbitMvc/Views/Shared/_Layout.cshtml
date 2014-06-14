@@ -17,7 +17,7 @@
                     @Html.RouteLink("Followers","Followers")
                     @Html.RouteLink("Following", "Following")
                     @Html.RouteLink("Profiles", "Profiles")
-                    @Html.RouteLink("Edit Profile", "ProfileDefault")
+                    @Html.RouteLink("Edit Profile", new { controller="Profile",action = "index"})
                 </nav>
                 using (var logoutForm = Html.BeginForm("Logout", "Account")) { 
                     @Html.AntiForgeryToken()

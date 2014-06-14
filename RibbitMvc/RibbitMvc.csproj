@@ -124,9 +124,11 @@
     <Compile Include="Data\IContext.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\IRibbitRepository.cs" />
-    <Compile Include="Data\IUserRepositoy.cs" />
+    <Compile Include="Data\IUserProfileRepository.cs" />
+    <Compile Include="Data\IUserRepository.cs" />
     <Compile Include="Data\RibbitDatabase.cs" />
     <Compile Include="Data\RibbitRepository.cs" />
+    <Compile Include="Data\UserProfileRepository.cs" />
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -139,13 +141,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IRibbitService.cs" />
     <Compile Include="Services\ISecurityService.cs" />
+    <Compile Include="Services\IUserProfileService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\RibbitService.cs" />
     <Compile Include="Services\SecurityService.cs" />
+    <Compile Include="Services\UserProfileService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Ui\RibbitViewPage.cs" />
     <Compile Include="ViewModel\BuddiesViewModel.cs" />
     <Compile Include="ViewModel\CreateRibbitViewModel.cs" />
+    <Compile Include="ViewModel\EditProfileViewModel.cs" />
     <Compile Include="ViewModel\LoginSignupViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\SignupViewModel.cs" />
@@ -174,6 +179,7 @@
     <Content Include="Views\Shared\_UserProfilePartial.cshtml" />
     <Content Include="Views\Shared\Buddies.cshtml" />
     <Content Include="Views\Shared\_FollowButtonPartial.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

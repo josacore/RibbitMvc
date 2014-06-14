@@ -7,7 +7,7 @@ using System.Web;
 
 namespace RibbitMvc.Data
 {
-    public class UserRepository : EfRepository<User>, IUserRepositoy
+    public class UserRepository : EfRepository<User>, IUserRepository
     {
         public UserRepository(DbContext context,bool sharedContext) : base(context,sharedContext) { }
 
