@@ -1,0 +1,13 @@
+﻿@model RibbitMvc.Models.User
+
+@if (Security.IsAuthenticated && Security.UserId != Model.ID)
+{
+    var isFollowing = CurrentUser.Followings.Any(u => u.ID == Model.ID);
+    var routeName = isFollowing ? "Unfollow" : "Follow";
+    using (var followForm = Html.BeginRouteForm(routeName, new { controller = "home", action = routeName }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Username);
+    <input type="submit" value="@routeName" />
+    }
+}

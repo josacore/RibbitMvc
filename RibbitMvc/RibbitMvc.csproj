@@ -149,6 +149,7 @@
     <Compile Include="ViewModel\LoginSignupViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\SignupViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -171,7 +172,8 @@
     <Content Include="Views\Home\Timeline.cshtml" />
     <Content Include="Views\Home\Profiles.cshtml" />
     <Content Include="Views\Shared\_UserProfilePartial.cshtml" />
-    <Content Include="Views\Home\Buddies.cshtml" />
+    <Content Include="Views\Shared\Buddies.cshtml" />
+    <Content Include="Views\Shared\_FollowButtonPartial.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -184,6 +186,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_RibbitPartial.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\Shared\_UserPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

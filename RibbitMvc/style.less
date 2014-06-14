@@ -73,7 +73,6 @@ header {
 
     div.wrapper {
         padding: 20px 0;
-        
         img {
             position: relative;
             top: 10px;
@@ -131,7 +130,6 @@ header {
 
             &.right {
                 width: 303px;
-                height: 313px;
                 float: right;
 
                 textarea.ribbitText {
@@ -144,10 +142,16 @@ header {
             &.left {
                 width: @content-width - 327;
                 float: left;
+                height: auto;
 
                 div.ribbitWrapper {
                     padding: 15px 0;
                     border-bottom: 1px solid @border-color;
+                    -webkit-transition: -webkit-transform 1s;
+                    -moz-transition: -moz-transform 1s;
+                    -ms-transition: -ms-transform 1s;
+                    -o-transition: -o-transform 1s;
+                    transition: transform 1s;
 
                     &:last-child {
                         border: none;
@@ -167,12 +171,10 @@ header {
 
                     img.avatar {
                         margin: 0 19px 10px 20px;
-                        float: left;
+                        display: block;
                     }
 
                     p {
-                        margin: 5px 50px 0 90px;
-                        padding: 0;
                         text-align: justify;
                         line-height: 1.5;
                         .antialiased(@text-color);
@@ -184,6 +186,14 @@ header {
                             border-left: 1px solid @border-color;
                         }
                     }
+                }
+
+                div.ribbitWrapper:hover {
+                    -webkit-transform: scale(1.1,1.1);
+                    -moz-transform: scale(1.1,1.1);
+                    -ms-transform: scale(1.1,1.1);
+                    -o-transform: scale(1.1,1.1);
+                    transform: scale(1.1,1.1);           
                 }
             }
 
@@ -213,20 +223,23 @@ header {
         .flash {
             padding: 10px;
             margin: 20px 0;
+
             &.error {
                 background: #ffefef;
                 color: #4c1717;
-                border:1px solid #4c1717;
+                border: 1px solid #4c1717;
             }
+
             &.warning {
                 background: #ffe4c1;
                 color: #79420d;
-                border:1px solid #79420d;
+                border: 1px solid #79420d;
             }
+
             &.notice {
                 background: #efffd7;
                 color: #8ba015;
-                border:1px solid #8ba015;
+                border: 1px solid #8ba015;
             }
         }
     }

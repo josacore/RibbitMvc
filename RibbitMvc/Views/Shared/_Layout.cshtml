@@ -8,7 +8,7 @@
 <body>
 	<header>
 		<div class="wrapper">
-            @Html.ActionLink(" ", "Index", "Home", new { style = "background: url('" + Url.Content("/gfx/logo.png") + "') no-repeat center right; height:40px;width:140px;text-indent: -9999px;display: block;margin: 0 15px 0 0;float: left;" })
+            @Html.ActionLink(" ", "Index", new { controller="home", action="index"}, new { style = "background: url('" + Url.Content("/gfx/logo.png") + "') no-repeat center right; height:40px;width:140px;text-indent: -9999px;display: block;margin: 0 15px 0 0;float: left;" })
 			
 			<span>Twitter Clone</span>
             @if (Security.IsAuthenticated)
@@ -40,14 +40,15 @@
                 </div>
             }
             
-            @RenderBody()
-
             @if (IsSectionDefined("RightPanel"))
             {
                 <div class="panel right">
-				    @RenderSection("RightPanel")
-			    </div>
+                    @RenderSection("RightPanel")
+                </div>
             }
+            
+            @RenderBody()
+
 			@if (IsSectionDefined("LeftPanel"))
             {
                 <div class="panel left">
@@ -58,7 +59,7 @@
 	</div>
 	<footer>
 		<div class="wrapper">
-			Ribbit - A Twitter Clone Tutorial<img src="/gfx/logo-nettuts.png" />
+			Ribbit - A Twitter Clone Tutorial <b>Jadesoft S.R.L.</b>
 		</div>
 	</footer>
 </body>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RibbitMvc.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,15 +11,30 @@ namespace RibbitMvc.Controllers
     {
         public ActionResult Index(string username)
         {
-            throw new NotImplementedException("list for "+username);
+            var user = Users.GetAllFor(username);
+            if (user == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            return View("UserProfile", new UserViewModel() { User = user, Ribbits = user.Ribbits });
         }
         public ActionResult Followers(string username)
         {
-            throw new NotImplementedException("Followers for " + username);
+            var user = Users.GetAllFor(username);
+            if (user ==null)
+            {
+                return new HttpNotFoundResult();
+            }
+            return View("Buddies", new BuddiesViewModel() { User = user , Buddies = user.Followers});
         }
         public ActionResult Following(string username)
         {
-            throw new NotImplementedException("Following for " + username);
+            var user = Users.GetAllFor(username);
+            if (user == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            return View("Buddies", new BuddiesViewModel() { User = user, Buddies = user.Followings });
         }
     }
 }
